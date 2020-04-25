@@ -17,7 +17,6 @@ class NavigationViewController: UINavigationController {
         let homeScreenVC = HomeScreenViewController()
         self.viewControllers = [homeScreenVC]
     }
-    
 
     /*
     // MARK: - Navigation

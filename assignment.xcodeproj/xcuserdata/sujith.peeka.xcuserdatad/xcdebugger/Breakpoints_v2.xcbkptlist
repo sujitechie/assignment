@@ -3,4 +3,65 @@
    uuid = "691F2644-1A6D-4C93-A9B9-A82730C0C5A9"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
+         <BreakpointContent
+            uuid = "49B7997D-557D-488A-BFF8-90603F1445E9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            scope = "1"
+            stopOnStyle = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "35F900C7-5E2D-4ED3-B43A-EF5726BD0227"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "assignment/HomeScreenViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "HomeScreenViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "35F900C7-5E2D-4ED3-B43A-EF5726BD0227 - 66fda11094176574"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "assignment.HomeScreenViewController.reloadTable() -&gt; ()"
+                  moduleName = "assignment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sujith.peeka/Desktop/assignment/assignment/assignment/HomeScreenViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "150">
+               </Location>
+               <Location
+                  uuid = "35F900C7-5E2D-4ED3-B43A-EF5726BD0227 - 5e51cc17c2911378"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in assignment.HomeScreenViewController.reloadTable() -&gt; ()"
+                  moduleName = "assignment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sujith.peeka/Desktop/assignment/assignment/assignment/HomeScreenViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
