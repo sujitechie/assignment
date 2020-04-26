@@ -18,49 +18,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "35F900C7-5E2D-4ED3-B43A-EF5726BD0227"
-            shouldBeEnabled = "Yes"
+            uuid = "41DF9B1D-4DDD-446C-8E1B-9AEFB8F649AD"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "assignment/HomeScreenViewController.swift"
+            filePath = "assignment/factsTableCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "HomeScreenViewController"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  uuid = "35F900C7-5E2D-4ED3-B43A-EF5726BD0227 - 66fda11094176574"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "assignment.HomeScreenViewController.reloadTable() -&gt; ()"
-                  moduleName = "assignment"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sujith.peeka/Desktop/assignment/assignment/assignment/HomeScreenViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "53"
-                  endingLineNumber = "53"
-                  offsetFromSymbolStart = "150">
-               </Location>
-               <Location
-                  uuid = "35F900C7-5E2D-4ED3-B43A-EF5726BD0227 - 5e51cc17c2911378"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in assignment.HomeScreenViewController.reloadTable() -&gt; ()"
-                  moduleName = "assignment"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sujith.peeka/Desktop/assignment/assignment/assignment/HomeScreenViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "54"
-                  endingLineNumber = "54"
-                  offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "loadImagefromURL(url:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -17,16 +17,4 @@ class Fact: Codable {
         case description
         case image = "imageHref"
     }
-
-//    override init() {
-//        factTitle = ""
-//        factDescription = ""
-//        factImage = ""
-//    }
-//
-//    init(title: String, description: String, image: String) {
-//        factTitle = title
-//        factDescription = description
-//        factImage = image
-//    }
 }

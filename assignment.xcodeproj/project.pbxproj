@@ -19,6 +19,7 @@
 		9C8564502452C00F000BEC89 /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C85644F2452C00F000BEC89 /* ErrorModel.swift */; };
 		9CCA980D245436A300EA807D /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA980C245436A300EA807D /* .swiftlint.yml */; };
 		9CCA980F245446E200EA807D /* HomeScreenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCA980E245446E200EA807D /* HomeScreenModel.swift */; };
+		9CF56B6A2455D5D5006B2841 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF56B692455D5D5006B2841 /* Utility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		9C85644F2452C00F000BEC89 /* ErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
 		9CCA980C245436A300EA807D /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		9CCA980E245446E200EA807D /* HomeScreenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenModel.swift; sourceTree = "<group>"; };
+		9CF56B692455D5D5006B2841 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,12 +71,13 @@
 		9C79B297244F2DBD00BE7648 /* assignment */ = {
 			isa = PBXGroup;
 			children = (
+				9CF56B6B2455D5F6006B2841 /* Data Factory */,
 				9C85644E2452BFF9000BEC89 /* models */,
-				9C47DB542452A4800087A463 /* DataFactory.swift */,
+				9CF56B6C2455D60A006B2841 /* Utility */,
 				9C79B298244F2DBD00BE7648 /* AppDelegate.swift */,
 				9C79B29C244F2DBD00BE7648 /* HomeScreenViewController.swift */,
-				9C79B2AC244F325900BE7648 /* NavigationViewController.swift */,
 				9C79B2AE244F3A8200BE7648 /* factsTableCell.swift */,
+				9C79B2AC244F325900BE7648 /* NavigationViewController.swift */,
 				9C79B29E244F2DBD00BE7648 /* Main.storyboard */,
 				9C79B2A1244F2DBE00BE7648 /* Assets.xcassets */,
 				9C79B2A3244F2DBE00BE7648 /* LaunchScreen.storyboard */,
@@ -91,6 +94,23 @@
 				9CCA980E245446E200EA807D /* HomeScreenModel.swift */,
 			);
 			path = models;
+			sourceTree = "<group>";
+		};
+		9CF56B6B2455D5F6006B2841 /* Data Factory */ = {
+			isa = PBXGroup;
+			children = (
+				9C47DB542452A4800087A463 /* DataFactory.swift */,
+			);
+			name = "Data Factory";
+			path = models;
+			sourceTree = "<group>";
+		};
+		9CF56B6C2455D60A006B2841 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				9CF56B692455D5D5006B2841 /* Utility.swift */,
+			);
+			name = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,6 +207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CF56B6A2455D5D5006B2841 /* Utility.swift in Sources */,
 				9C8564502452C00F000BEC89 /* ErrorModel.swift in Sources */,
 				9C79B2AF244F3A8200BE7648 /* factsTableCell.swift in Sources */,
 				9CCA980F245446E200EA807D /* HomeScreenModel.swift in Sources */,

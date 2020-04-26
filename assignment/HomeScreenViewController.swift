@@ -20,10 +20,9 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         factsTable.dataSource = self
         factsTable.delegate = self
         factsTable.register(FactsTableCell.self, forCellReuseIdentifier: "factsCell")
-        
+        //configure View
         configureView()
         fetchFacts()
-
     }
 
     private func configureView() {
@@ -31,31 +30,27 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         self.title = "Home"
         factsTable.backgroundColor = .white
         view.addSubview(factsTable)
-        factsTable.translatesAutoresizingMaskIntoConstraints = false
-        factsTable.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
-        factsTable.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
-        factsTable.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
-        factsTable.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
+        factsTable.pinToBounds(viewtoPin: view)
     }
-    
     private func fetchFacts() {
         let url = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"
         dataFactory.getFacts(url: url) { (data, error) in
-            self.factsData = data!
-              DispatchQueue.main.async {
-                self.title = data?.title
-                self.factsTable.reloadData()
-                //let timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.reloadTable), userInfo: nil, repeats: false)
-
+            if let error = error {
+                print("Error : \(String(describing: error.errorDescription))")
+            } else {
+                if let factData = data {
+                    self.factsData = factData
+                      DispatchQueue.main.async {
+                        self.title = factData.title
+                        self.factsTable.reloadData()
+                    }
+                } else {
+                    print("Error : something went wrong.")
+                }
             }
         }
     }
-//    @objc func reloadTable() {
-//               DispatchQueue.main.async {
-//                 self.factsTable.reloadData()
-//             }
-//    }
-
+    // MARK: Table View Delegate methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return factsData.facts.count
     }
@@ -67,11 +62,12 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         factsCell.title.text = factsData.facts[indexPath.row].title
         factsCell.factDescription.text = factsData.facts[indexPath.row].description
+        if let imageUrl = factsData.facts[indexPath.row].image {
+            factsCell.factImage.isHidden = false
+            factsCell.loadImagefromURL(url: imageUrl)
+        } else {
+            factsCell.factImage.isHidden = true
+        }
         return cell
     }
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return autodim
-//    }
-
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class DataFactory: NSObject {
     let data = "hello there"
@@ -29,9 +30,24 @@ class DataFactory: NSObject {
         }
 
     }
+    func downloadImageFromURL(imageUrl: String, completionHandler: @escaping (UIImage?, CustomError?) -> Void) {
+        makeWebRequest(url: imageUrl) { (data, error) in
+            if let error = error {
+                completionHandler(nil, error)
+            } else {
+                guard let imageData = data else {
+                    let error = CustomError(code: 0, description: "Something went wrong")
+                    completionHandler(nil, error)
+                    return
+                }
+                let image = UIImage(data: imageData)
+                completionHandler(image, nil)
+            }
+        }
+    }
 
     private func makeWebRequest(url: String, completionHandler: @escaping (Data?, CustomError?) -> Void) {
-        let url = URL(string: url)!
+        guard let url = URL(string: url) else { return }
         let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
 
             if let httpResponse = response as? HTTPURLResponse {
@@ -41,14 +57,7 @@ class DataFactory: NSObject {
                         completionHandler(nil, error)
                         return
                     }
-                    do {
-                        //guard let utf8Data = String(decoding: data, as: UTF8.self).data(using: .utf8) else { return }
-                        //let jsonResponse =  try JSONSerialization.jsonObject(with: utf8Data, options: .mutableContainers)
-                        completionHandler(data, nil)
-                    } catch {
-                        let error = CustomError(code: httpResponse.statusCode, description: error.localizedDescription )
-                        completionHandler(nil, error)
-                    }
+                    completionHandler(data, nil)
                 } else {
                     let error = CustomError(code: httpResponse.statusCode, description: "")
                     completionHandler(nil, error)

@@ -15,7 +15,6 @@ class HomeScreen: Codable {
         case title
         case facts = "rows"
     }
-    
     init() {
         title = ""
         facts = []
