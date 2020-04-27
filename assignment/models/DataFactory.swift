@@ -30,8 +30,13 @@ class DataFactory: NSObject {
         }
 
     }
-    func downloadImageFromURL(imageUrl: String, completionHandler: @escaping (UIImage?, CustomError?) -> Void) {
-        makeWebRequest(url: imageUrl) { (data, error) in
+    func downloadImageFromURL(imageUrl: String?, completionHandler: @escaping (UIImage?, CustomError?) -> Void) {
+        guard let url = imageUrl else {
+            let error = CustomError(code: 0, description: "No url found.")
+            completionHandler(nil, error)
+            return
+        }
+        makeWebRequest(url: url) { (data, error) in
             if let error = error {
                 completionHandler(nil, error)
             } else {
@@ -59,7 +64,7 @@ class DataFactory: NSObject {
                     }
                     completionHandler(data, nil)
                 } else {
-                    let error = CustomError(code: httpResponse.statusCode, description: "")
+                    let error = CustomError(code: httpResponse.statusCode, description: "Request fail.")
                     completionHandler(nil, error)
                 }
             }

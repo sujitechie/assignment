@@ -9,8 +9,8 @@
 import Foundation
 
 class CustomError: NSObject {
-    var errorCode: Int?
-    var errorDescription: String?
+    let errorCode: Int?
+    let errorDescription: String?
 
     init(code: Int, description: String) {
         errorCode = code

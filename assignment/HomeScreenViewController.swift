@@ -10,9 +10,10 @@ import UIKit
 
 class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    let factsTable = UITableView()
-    let dataFactory = DataFactory()
-    var factsData = HomeScreen()
+    private let factsTable = UITableView()
+    private let dataFactory = DataFactory()
+    private var factsData = HomeScreen()
+    private let refreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,12 +27,21 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
     }
 
     private func configureView() {
-        view.backgroundColor = UIColor.white
         self.title = "Home"
+        //Change background color
+        view.backgroundColor = UIColor.white
         factsTable.backgroundColor = .white
         view.addSubview(factsTable)
         factsTable.pinToBounds(viewtoPin: view)
+        //refresh control
+        factsTable.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshFacts), for: .valueChanged)
     }
+    
+    @objc private func refreshFacts() {
+        fetchFacts()
+    }
+    
     private func fetchFacts() {
         let url = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"
         dataFactory.getFacts(url: url) { (data, error) in
@@ -43,6 +53,7 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
                       DispatchQueue.main.async {
                         self.title = factData.title
                         self.factsTable.reloadData()
+                        self.refreshControl.endRefreshing()
                     }
                 } else {
                     print("Error : something went wrong.")
@@ -50,6 +61,7 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         }
     }
+    
     // MARK: Table View Delegate methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return factsData.facts.count
@@ -63,10 +75,10 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         factsCell.title.text = factsData.facts[indexPath.row].title
         factsCell.factDescription.text = factsData.facts[indexPath.row].description
         if let imageUrl = factsData.facts[indexPath.row].image {
-            factsCell.factImage.isHidden = false
+           // factsCell.factImage.isHidden = false
             factsCell.loadImagefromURL(url: imageUrl)
         } else {
-            factsCell.factImage.isHidden = true
+            factsCell.factImage.image = UIImage(imageLiteralResourceName: "no-image")
         }
         return cell
     }

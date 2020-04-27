@@ -34,7 +34,6 @@ class FactsTableCell: UITableViewCell {
         self.addSubview(factImage)
         //Add constraints for factImage
         factImage.translatesAutoresizingMaskIntoConstraints = false
-        factImage.backgroundColor = .gray
         factImage.topAnchor.constraint(equalTo: self.topAnchor, constant: padding).isActive = true
         factImage.leftAnchor.constraint(equalTo: self.leftAnchor, constant: padding).isActive = true
         factImage.bottomAnchor.constraint(lessThanOrEqualTo: self.bottomAnchor, constant: -padding).isActive = true
@@ -60,6 +59,7 @@ class FactsTableCell: UITableViewCell {
                 print("Error : \(String(describing: error.errorDescription))")
             } else {
                 if let image = image {
+                    print("success : image downloaded.")
                     DispatchQueue.main.async {
                         self.factImage.image = image
                     }
